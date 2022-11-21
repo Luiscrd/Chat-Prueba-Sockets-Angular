@@ -7,11 +7,13 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = { url: environment.ws_url, options: {} };
 
 import { AppComponent } from './app.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
