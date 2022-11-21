@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { map } from 'rxjs';
+import { User } from '../classes/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { map } from 'rxjs';
 export class WebsocketService {
 
   public socketStatus = false;
+
+  public user!: User;
 
   constructor(
 
@@ -50,6 +53,18 @@ export class WebsocketService {
   listen(event: string) {
 
     return this.socket.fromEvent(event);
+
+  }
+
+  loginWs(name: string) {
+
+    console.log('Configurando', name);
+
+    this.socket.emit('config-user', {name}, (resp: any) => {
+
+      console.log(resp);
+
+    });
 
   }
 

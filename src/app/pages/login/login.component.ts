@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
 
-    private router: Router
+    private router: Router,
+
+    private wsService: WebsocketService
 
   ) { }
 
@@ -25,17 +28,21 @@ export class LoginComponent implements OnInit {
 
   login() {
 
-    if (this.password !== '123456') {
+    if (this.username.length === 0) return;
 
-      this.errorPassword = true;
+    // if (this.password !== '123456') {
 
-      return;
+    //   this.errorPassword = true;
 
-    }
+    //   return;
 
-    this.errorPassword = false;
+    // }
 
-    this.router.navigateByUrl('/');
+    // this.errorPassword = false;
+
+    // this.router.navigateByUrl('/');
+
+    this.wsService.loginWs(this.username);
 
   }
 
