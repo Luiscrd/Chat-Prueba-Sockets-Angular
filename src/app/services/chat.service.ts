@@ -16,7 +16,8 @@ export class ChatService {
 
     const payload = {
       to: 'Luis Carballo',
-      msg
+      msg,
+      date: new Date().toUTCString()
     }
 
     this.wsService.emit('message', payload);
