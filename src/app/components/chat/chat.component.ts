@@ -10,6 +10,8 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
+  public element!: HTMLElement;
+
   public messages: any[] = [];
 
   public msgSubscription!: Subscription;
@@ -26,11 +28,19 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.element = document.getElementById('chat')!;
+
     this.msgSubscription = this.chatService.getMessages().subscribe(msg => {
 
       console.log(msg);
 
       this.messages.push(msg);
+
+      setTimeout(() => {
+
+        this.element.scrollTop = this.element.scrollHeight;
+
+      }, 50);
 
     })
 
@@ -46,10 +56,22 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     console.log(this.message);
 
+    if (this.message.length === 0) return;
+
     this.chatService.sendMessage(this.message);
 
     this.message = '';
 
   }
+
+  handleKeyUp(e: any){
+
+    if(e.keyCode === 13){
+
+       this.send();
+
+    }
+
+ }
 
 }

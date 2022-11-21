@@ -22,7 +22,7 @@
         alt="Luis Carballo" class="foto_user">
       <div>
         <h2>Luis Carballo</h2>
-        <h3>already 1902 messages</h3>
+        <h3>{{ messages.length }} mensages</h3>
       </div>
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_star.png" alt="">
     </header>
@@ -31,7 +31,7 @@
         <div class="entete">
           <span class="status green"></span>
           <h2>{{ msg.to }}</h2>
-          <h3>{{ msg.date }}</h3>
+          <h3 class="ms-2">{{ msg.date }}</h3>
         </div>
         <div class="triangle"></div>
         <div class="message">{{ msg.msg }}</div>
@@ -50,7 +50,8 @@
     </ul>
     <footer>
       <form (ngSubmit)="send()"></form>
-      <textarea placeholder="Type your message" [(ngModel)]="message"></textarea>
+      <!-- <textarea placeholder="Type your message" [(ngModel)]="message"></textarea> -->
+      <input autofocus="true" type="text" (keyup)="handleKeyUp($event)" placeholder="Type your message" [(ngModel)]="message"/>
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
       <a (click)="send()">Enviar</a>
