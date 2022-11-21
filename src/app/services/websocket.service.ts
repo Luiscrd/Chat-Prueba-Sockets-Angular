@@ -39,11 +39,10 @@ export class WebsocketService {
 
   }
 
-  // sendMessage(msg: string) {
-  //   this.socket.emit('message', msg);
-  // }
-  // getMessage() {
-  //   return this.socket.fromEvent('message');
-  // }
+  emit(event: string, payload?: any, callback?: Function) {
+
+    this.socket.emit(event, payload, callback);
+
+  }
 
 }
