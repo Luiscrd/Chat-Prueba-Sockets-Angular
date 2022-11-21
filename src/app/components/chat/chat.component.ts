@@ -9,6 +9,10 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 })
 export class ChatComponent implements OnInit {
 
+  public messages: any[] = [];
+
+  public message: string = '';
+
   constructor(
 
     public wsService: WebsocketService,
@@ -18,6 +22,23 @@ export class ChatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.chatService.getMessages().subscribe(msg => {
+
+      console.log(msg);
+
+    })
+
+  }
+
+  send(){
+
+    console.log(this.message);
+
+    this.chatService.sendMessage(this.message);
+
+    this.message = '';
+
   }
 
 }

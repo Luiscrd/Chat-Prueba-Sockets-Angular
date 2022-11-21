@@ -22,4 +22,10 @@ export class ChatService {
     this.wsService.emit('message', payload);
 
   }
+
+  getMessages() {
+
+     return this.wsService.listen('new-message');
+
+  }
 }

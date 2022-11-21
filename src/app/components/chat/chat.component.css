@@ -189,7 +189,7 @@ main header h3{
 }
 #chat .me .triangle{
 		border-color: transparent transparent #6fbced transparent;
-		margin-left:375px;
+		margin-left: 95%;
 }
 
 main footer{
@@ -220,9 +220,10 @@ main footer a{
 	font-weight:bold;
 	color:#6fbced;
 	vertical-align:top;
-	margin-left:333px;
+	margin-left: 85%;
 	margin-top:5px;
 	display:inline-block;
+  cursor: pointer;
 }
 
 .connection{

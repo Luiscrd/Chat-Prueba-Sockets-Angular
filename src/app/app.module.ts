@@ -8,6 +8,7 @@ const config: SocketIoConfig = { url: environment.ws_url, options: {} };
 
 import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ChatComponent } from './components/chat/chat.component';
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
