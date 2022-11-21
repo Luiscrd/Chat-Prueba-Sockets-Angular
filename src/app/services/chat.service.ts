@@ -29,4 +29,10 @@ export class ChatService {
      return this.wsService.listen('new-message');
 
   }
+
+  getMessagesPrivate() {
+
+    return this.wsService.listen('priavate-message');
+
+ }
 }
