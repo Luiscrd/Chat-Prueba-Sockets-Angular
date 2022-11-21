@@ -14,6 +14,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { MessagesComponent } from './components/messages/messages.component';
   imports: [
     BrowserModule,
     SocketIoModule.forRoot(config),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
