@@ -65,11 +65,25 @@ export class WebsocketService {
 
         console.log(resp);
 
-        if (resp.ok) resolve();
+        if (resp.ok) {
+
+          this.user = new User(name, img);
+
+          this.saveStorage(this.user);
+
+          resolve();
+
+        }
 
       });
 
     });
+
+  }
+
+  saveStorage(user: User) {
+
+    localStorage.setItem('user', JSON.stringify(user));
 
   }
 
