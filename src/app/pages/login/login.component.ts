@@ -32,23 +32,25 @@ export class LoginComponent implements OnInit {
 
     if (this.username.length === 0) return;
 
-    // if (this.password !== '123456') {
+    if (this.password !== '123456') {
 
-    //   this.errorPassword = true;
+      this.errorPassword = true;
 
-    //   return;
+      return;
 
-    // }
-
-    // this.errorPassword = false;
-
-    // this.router.navigateByUrl('/');
+    }
 
     if(this.image.length === 0) {
       this.image = 'https://vectorified.com/images/no-profile-picture-icon-6.png'
     }
 
-    this.wsService.loginWs(this.username, this.image);
+    this.wsService.loginWs(this.username, this.image).then(() => {
+
+      this.errorPassword = false;
+
+      this.router.navigateByUrl('/');
+
+    });
 
   }
 

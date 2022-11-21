@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { map } from 'rxjs';
 import { User } from '../classes/user';
 
 @Injectable({
@@ -60,11 +59,17 @@ export class WebsocketService {
 
     console.log('Configurando', name);
 
-    this.emit('config-user', {name, img}, (resp: any) => {
+    return new Promise<void>((resolve, reject) => {
 
-      console.log(resp);
+      this.emit('config-user', { name, img }, (resp: {ok: boolean, msg: string}) => {
 
-    })
+        console.log(resp);
+
+        if (resp.ok) resolve();
+
+      });
+
+    });
 
   }
 
