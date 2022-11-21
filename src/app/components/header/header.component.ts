@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
 
   public name: string = '';
 
+  public img: string = '';
+
   constructor(
 
     public webSocketService: WebsocketService
@@ -20,6 +22,8 @@ export class HeaderComponent implements OnInit {
   ) {
 
     this.name = webSocketService.user!.name;
+
+    this.img = webSocketService.user!.img!;
 
    }
 

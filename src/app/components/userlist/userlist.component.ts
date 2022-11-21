@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
   selector: 'app-userlist',
@@ -7,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor() { }
+  public name: string = '';
+
+  public img: string = '';
+
+  constructor(
+
+    public webSocketService: WebsocketService
+
+  ) {
+
+    this.name = webSocketService.user!.name;
+
+    this.img = webSocketService.user!.img!;
+
+   }
 
   ngOnInit(): void {
   }
