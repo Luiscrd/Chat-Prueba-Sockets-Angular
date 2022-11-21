@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ChatService } from 'src/app/services/chat.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 
@@ -7,9 +8,11 @@ import { WebsocketService } from 'src/app/services/websocket.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, OnDestroy {
 
   public messages: any[] = [];
+
+  public msgSubscription!: Subscription;
 
   public message: string = '';
 
@@ -23,15 +26,23 @@ export class ChatComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.chatService.getMessages().subscribe(msg => {
+    this.msgSubscription = this.chatService.getMessages().subscribe(msg => {
 
       console.log(msg);
+
+      this.messages.push(msg);
 
     })
 
   }
 
-  send(){
+  ngOnDestroy(): void {
+
+    this.msgSubscription.unsubscribe();
+
+  }
+
+  send() {
 
     console.log(this.message);
 
