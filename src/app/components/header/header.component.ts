@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../../classes/user';
+import { WebsocketService } from '../../services/websocket.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,17 @@ export class HeaderComponent implements OnInit {
 
   @Input() messages: any[] = [];
 
-  constructor() { }
+  public name: string = '';
+
+  constructor(
+
+    public webSocketService: WebsocketService
+
+  ) {
+
+    this.name = webSocketService.user!.name;
+
+   }
 
   ngOnInit(): void {
   }

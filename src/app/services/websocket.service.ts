@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { User } from '../classes/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,19 @@ export class WebsocketService {
 
   public socketStatus = false;
 
-  public user!: User;
+  public user: User | null = null;
 
   constructor(
 
-    private socket: Socket
+    private socket: Socket,
+
+    private roter: Router
 
   ) {
 
     this.checkStatus();
+
+    this.readStorage();
 
   }
 
@@ -84,6 +89,20 @@ export class WebsocketService {
   saveStorage(user: User) {
 
     localStorage.setItem('user', JSON.stringify(user));
+
+  }
+
+  readStorage() {
+
+    if (localStorage.getItem('user')) {
+
+      this.user = JSON.parse(localStorage.getItem('user')!);
+
+      return;
+
+    }
+
+    this.roter.navigateByUrl('/login');
 
   }
 

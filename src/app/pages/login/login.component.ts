@@ -9,11 +9,11 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 })
 export class LoginComponent implements OnInit {
 
-  public username: string = '';
+  public username: string = 'Luis Carballo';
 
-  public password: string = '';
+  public password: string = '123456';
 
-  public image: string = '';
+  public image: string = 'https://vectorified.com/images/no-profile-picture-icon-6.png';
 
   public errorPassword: boolean = false;
 
