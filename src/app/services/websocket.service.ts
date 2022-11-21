@@ -60,11 +60,11 @@ export class WebsocketService {
 
     console.log('Configurando', name);
 
-    this.socket.emit('config-user', {name}, (resp: any) => {
+    this.emit('config-user', {name}, (resp: any) => {
 
       console.log(resp);
 
-    });
+    })
 
   }
 
