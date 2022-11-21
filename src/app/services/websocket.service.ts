@@ -56,11 +56,11 @@ export class WebsocketService {
 
   }
 
-  loginWs(name: string) {
+  loginWs(name: string, img: string) {
 
     console.log('Configurando', name);
 
-    this.emit('config-user', {name}, (resp: any) => {
+    this.emit('config-user', {name, img}, (resp: any) => {
 
       console.log(resp);
 

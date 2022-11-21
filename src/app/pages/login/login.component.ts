@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
 
   public password: string = '';
 
+  public image: string = '';
+
   public errorPassword: boolean = false;
 
   constructor(
@@ -42,7 +44,11 @@ export class LoginComponent implements OnInit {
 
     // this.router.navigateByUrl('/');
 
-    this.wsService.loginWs(this.username);
+    if(this.image.length === 0) {
+      this.image = 'https://vectorified.com/images/no-profile-picture-icon-6.png'
+    }
+
+    this.wsService.loginWs(this.username, this.image);
 
   }
 
