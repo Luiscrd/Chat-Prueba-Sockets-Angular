@@ -7,14 +7,23 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = { url: environment.ws_url, options: {} };
 
 import { AppComponent } from './app.component';
-import { ChatComponent } from './components/chat/chat.component';
+
 import { FormsModule } from '@angular/forms';
+import { UserlistComponent } from './components/userlist/userlist.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ChatComponent } from './pages/chat/chat.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    UserlistComponent,
+    LoginComponent,
+    HeaderComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

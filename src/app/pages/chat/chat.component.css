@@ -1,0 +1,111 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	background-color:#abd9e9;
+	font-family:Arial;
+}
+#container{
+	width:100vw;
+	height:100vh;
+	background:#eff3f7;
+	margin:0 auto;
+	font-size:0;
+	border-radius:5px;
+	overflow:hidden;
+}
+
+main{
+	width: calc(100vw - 260px);
+	height: 100vh;
+	display:inline-block;
+	font-size:15px;
+	vertical-align:top;
+}
+
+h2,h3{
+	margin:0;
+}
+
+.green{
+	background-color:#58b666;
+}
+.orange{
+	background-color:#ff725d;
+}
+.blue{
+	background-color:#6fbced;
+	margin-right:0;
+	margin-left:7px;
+}
+
+main footer{
+	height:155px;
+	padding:20px 30px 10px 20px;
+}
+main footer textarea{
+	resize:none;
+	border:none;
+	display:block;
+	width:100%;
+	height:80px;
+	border-radius:3px;
+	padding:20px;
+	font-size:13px;
+	margin-bottom:13px;
+}
+main footer textarea::placeholder{
+	color:#ddd;
+}
+
+main footer input{
+	resize:none;
+	border:none;
+	display:block;
+	width:100%;
+	height:80px;
+	border-radius:3px;
+	padding:20px;
+	font-size:13px;
+	margin-bottom:13px;
+}
+main footer input::placeholder{
+	color:#ddd;
+}
+
+main footer input:focus{
+  outline: none;
+}
+main footer img{
+	height:30px;
+	cursor:pointer;
+}
+main footer a{
+	text-decoration:none;
+	text-transform:uppercase;
+	font-weight:bold;
+	color:#6fbced;
+	vertical-align:top;
+	margin-left: 85%;
+	margin-top:5px;
+	display:inline-block;
+  cursor: pointer;
+}
+
+.connection{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.foto_user{
+  width: 55px;
+  border: solid gray 3px;
+}

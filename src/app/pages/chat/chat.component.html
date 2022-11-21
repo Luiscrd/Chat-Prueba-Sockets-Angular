@@ -1,0 +1,21 @@
+<div id="container">
+  <app-userlist></app-userlist>
+  <main>
+    <app-header [messages]="messages"></app-header>
+    <app-messages [messages]="messages"></app-messages>
+    <footer>
+      <form (ngSubmit)="send()"></form>
+      <!-- <textarea placeholder="Type your message" [(ngModel)]="message"></textarea> -->
+      <input autofocus="true" type="text" (keyup)="handleKeyUp($event)" placeholder="Type your message" [(ngModel)]="message"/>
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_picture.png" alt="">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1940306/ico_file.png" alt="">
+      <a (click)="send()">Enviar</a>
+    </footer>
+  </main>
+</div>
+<div *ngIf="!wsService.socketStatus" class="connection">
+  <div class="text-center">
+    <h1>Desconectado</h1>
+    <h4>Esperando conexión...</h4>
+  </div>
+</div>
