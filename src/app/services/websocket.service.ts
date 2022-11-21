@@ -98,6 +98,8 @@ export class WebsocketService {
 
       this.user = JSON.parse(localStorage.getItem('user')!);
 
+      this.loginWs(this.user?.name!, this.user?.img!);
+
       return;
 
     }
