@@ -30,15 +30,13 @@ export class WebsocketService {
 
     this.socket.on('connect', () => {
 
-      console.log('Conectado al servidor');
-
       this.socketStatus = true;
+
+      this.readStorage();
 
     })
 
     this.socket.on('disconnect', () => {
-
-      console.log('Desconectado del servidor');
 
       this.socketStatus = false;
 
@@ -47,8 +45,6 @@ export class WebsocketService {
   }
 
   emit(event: string, payload?: any, callback?: Function) {
-
-    console.log('Emitiendo', event);
 
     this.socket.emit(event, payload, callback);
 
@@ -62,13 +58,9 @@ export class WebsocketService {
 
   loginWs(name: string, img: string) {
 
-    console.log('Configurando', name);
-
     return new Promise<void>((resolve, reject) => {
 
       this.emit('config-user', { name, img }, (resp: {ok: boolean, msg: string}) => {
-
-        console.log(resp);
 
         if (resp.ok) {
 
