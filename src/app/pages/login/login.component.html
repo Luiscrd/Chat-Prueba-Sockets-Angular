@@ -5,8 +5,47 @@
         <span class="login100-form-title">Chat App</span>
         <input [(ngModel)]="username" class="input100" type="text" name="username" placeholder="Username">
         <input [(ngModel)]="password" class="input100 mt-4" type="password" name="pass" placeholder="Password">
-        <input [(ngModel)]="image" class="input100 mt-4" type="url" name="image" placeholder="Image ( url )">
+        <!-- <input [(ngModel)]="image" class="input100 mt-4" type="url" name="image" placeholder="Image ( url )"> -->
         <samp *ngIf="errorPassword" class="ms-3 text-danger">* Passwor no valido</samp>
+        <div class="images-avatar row mt-4 mb-2">
+          <div class="col-3">
+            <img
+            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-379-456331-512.png"
+            class="img-avatar"
+            alt="Avatar"
+            (click)="selecAvatar(avatar1)"
+            style="opacity: 0.5;"
+            #avatar1>
+          </div>
+          <div class="col-3">
+            <img
+            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-371-456323-512.png"
+            class="img-avatar"
+            alt="Avatar"
+            (click)="selecAvatar(avatar2)"
+            style="opacity: 0.5;"
+            #avatar2>
+          </div>
+          <div class="col-3">
+            <img
+            src="https://cdn2.iconfinder.com/data/icons/avatars-99/63/avatar-378-456330-512.png"
+            class="img-avatar"
+            alt="Avatar"
+            (click)="selecAvatar(avatar3)"
+            style="opacity: 0.5;"
+            #avatar3>
+          </div>
+          <div class="col-3">
+            <img
+            src="https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png"
+            class="img-avatar"
+            alt="Avatar"
+            (click)="selecAvatar(avatar4)"
+            style="opacity: 0.5;"
+            #avatar4>
+          </div>
+        </div>
+        <samp *ngIf="errorImage" class="ms-3 text-danger">* Seleccione avatar</samp>
         <!-- <div class="text-right p-t-13 p-b-23">
           <span class="txt1 me-2">¿Olvidaste</span>
           <a href="#" class="txt2">Username / Password?</a>

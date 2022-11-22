@@ -2,3 +2,21 @@
   background-color: gray;
   background-image: url('https://static.vecteezy.com/system/resources/previews/000/544/228/large_2x/white-abstract-background-vector-gray-abstract-modern-design-background-for-report-and-project-presentation-template-vector-illustration-graphic-digital-futuristic-and-circular-curve-shape-design.jpg');
 }
+
+.images-avatar{
+  width: 100%;
+}
+
+.img-avatar{
+  width: 100%;
+  cursor: pointer;
+}
+
+.img-avatar:hover{
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.row{
+  margin-left: 0;
+}

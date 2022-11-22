@@ -11,5 +11,6 @@
         <h3 *ngIf="wsService.socketStatus"><span class="status green"></span>online</h3> -->
       </div>
     </li>
+    {{ activedUsers | async }}
   </ul>
 </aside>

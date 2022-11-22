@@ -13,9 +13,11 @@ export class LoginComponent implements OnInit {
 
   public password: string = '123456';
 
-  public image: string = 'https://vectorified.com/images/no-profile-picture-icon-6.png';
+  public image: string = '';
 
   public errorPassword: boolean = false;
+
+  public errorImage: boolean = false;
 
   constructor(
 
@@ -41,7 +43,11 @@ export class LoginComponent implements OnInit {
     }
 
     if(this.image.length === 0) {
-      this.image = 'https://vectorified.com/images/no-profile-picture-icon-6.png'
+
+      this.errorImage = true;
+
+      return;
+
     }
 
     this.wsService.loginWs(this.username, this.image).then(() => {
@@ -51,6 +57,27 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/');
 
     });
+
+  }
+
+  selecAvatar(avatar: HTMLElement){
+
+    this.errorImage = false;
+
+    const imgs = document.querySelectorAll('.img-avatar');
+
+    imgs.forEach(img => {
+
+      img.attributes[4].value = 'opacity: 0.5;'
+
+    })
+
+    avatar.style.opacity = '1';
+
+    this.image = avatar.attributes[1].value;
+
+    console.log(this.image);
+
 
   }
 
