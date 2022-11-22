@@ -21,9 +21,13 @@ export class HeaderComponent implements OnInit {
 
   ) {
 
-    this.name = webSocketService.user!.name;
+    // this.name = webSocketService.user!.name;
 
-    this.img = webSocketService.user!.img!;
+    // this.img = webSocketService.user!.img!;
+
+    this.name = 'Sala Generál';
+
+    this.img = 'https://www.picpng.com/_next/image?url=https%3A%2F%2Fcdn.picpng.com%2Fcomputer%2Fcomputer-user-icon-peolpe-58180.png&w=1080&q=100'
 
    }
 

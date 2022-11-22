@@ -60,11 +60,14 @@ export class WebsocketService {
 
     return new Promise<void>((resolve, reject) => {
 
-      this.emit('config-user', { name, img }, (resp: { ok: boolean, msg: string }) => {
+      this.emit('config-user', { name, img }, (resp: { ok: boolean, msg: string, id: string }) => {
+
+        console.log(resp);
+
 
         if (resp.ok) {
 
-          this.user = new User(name, img);
+          this.user = new User(name, img, resp.id);
 
           this.saveStorage(this.user);
 

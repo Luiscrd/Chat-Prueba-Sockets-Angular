@@ -76,9 +76,6 @@ export class LoginComponent implements OnInit {
 
     this.image = avatar.attributes[1].value;
 
-    console.log(this.image);
-
-
   }
 
 }

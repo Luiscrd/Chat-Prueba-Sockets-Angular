@@ -4,12 +4,14 @@
   </header>
   <ul>
     <li *ngFor="let user of activedUsers | async">
+      <div *ngIf="user.id !== id">
       <img [src]="user.img" alt="user.name" class="foto_user">
       <div>
         <h2>{{ user.name }}</h2>
         <!-- <h3 *ngIf="!wsService.socketStatus"><span class="status orange"></span>offline</h3>
         <h3 *ngIf="wsService.socketStatus"><span class="status green"></span>online</h3> -->
       </div>
+    </div>
     </li>
   </ul>
 </aside>
