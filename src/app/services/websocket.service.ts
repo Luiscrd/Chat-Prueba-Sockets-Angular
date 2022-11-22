@@ -60,7 +60,7 @@ export class WebsocketService {
 
     return new Promise<void>((resolve, reject) => {
 
-      this.emit('config-user', { name, img }, (resp: {ok: boolean, msg: string}) => {
+      this.emit('config-user', { name, img }, (resp: { ok: boolean, msg: string }) => {
 
         if (resp.ok) {
 
@@ -75,6 +75,26 @@ export class WebsocketService {
       });
 
     });
+
+  }
+
+  logoutWs() {
+
+    this.user = null;
+
+    localStorage.removeItem('user');
+
+    this.emit('config-user', { name: 'sin-nombre', img: '' }, (resp: { ok: boolean, msg: string }) => {
+
+      if (resp.ok) {
+
+        this.roter.navigateByUrl('/login')
+
+      }
+
+    });
+
+
 
   }
 

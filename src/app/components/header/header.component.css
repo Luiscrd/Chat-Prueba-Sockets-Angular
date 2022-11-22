@@ -37,3 +37,13 @@ header h3{
   width: 55px;
   border: solid gray 3px;
 }
+
+.logout{
+  margin-left: 60%;
+  cursor: pointer;
+}
+
+.logout:hover{
+  transition: 0.5s;
+  opacity: 0.5;
+}
