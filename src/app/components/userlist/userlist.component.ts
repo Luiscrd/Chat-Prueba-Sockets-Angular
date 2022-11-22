@@ -34,6 +34,8 @@ export class UserlistComponent implements OnInit {
 
     this.activedUsers = this.chatService.getActivedusers();
 
+    this.chatService.emitActivedusers();
+
   }
 
 }

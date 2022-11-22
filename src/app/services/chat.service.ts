@@ -42,4 +42,10 @@ export class ChatService {
 
 }
 
+emitActivedusers() {
+
+  return this.wsService.emit('seend-users');
+
+}
+
 }

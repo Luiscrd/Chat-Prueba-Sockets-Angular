@@ -3,14 +3,13 @@
     <input type="text" placeholder="search">
   </header>
   <ul>
-    <li>
-      <img [src]="img" alt="Luis Carballo" class="foto_user">
+    <li *ngFor="let user of activedUsers | async">
+      <img [src]="user.img" alt="user.name" class="foto_user">
       <div>
-        <h2>{{ name }}</h2>
+        <h2>{{ user.name }}</h2>
         <!-- <h3 *ngIf="!wsService.socketStatus"><span class="status orange"></span>offline</h3>
         <h3 *ngIf="wsService.socketStatus"><span class="status green"></span>online</h3> -->
       </div>
     </li>
-    {{ activedUsers | async }}
   </ul>
 </aside>
